@@ -49,11 +49,6 @@ var main = function () {
   $('.add-comments').on('click', textClickEventHandler);
   $('.reply').on('click', replyClickEventHandler);
   
-  showClickEventHandler();
-  textClickEventHandler();
-  commentClickEventHandler();
-  replyClickEventHandler();
-  postReplyClickEventHandler();
 };
 
 $(document).ready(main);
