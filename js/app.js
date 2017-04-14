@@ -2,14 +2,12 @@
 var showClickEventHandler = function (event) {
   $(this).closest('.post').find('.comments').toggle();
   event.stopPropagation();
-  event.preventDefault();
 };
 
 //when add comment is clicked, show textarea
 var textClickEventHandler = function (event) {
   $(this).closest('.post').find('.input').toggle();
   event.stopPropagation();
-  event.preventDefault();
 };
 
 //post comment 
@@ -20,7 +18,6 @@ var commentClickEventHandler = function (event) {
     commentList.show();
     $('.status-box').val('');
     event.stopPropagation();
-    event.preventDefault();
     $('.reply').on('click', replyClickEventHandler);
   };
 
@@ -29,7 +26,6 @@ var replyClickEventHandler = function (event) {
   $('<ul><li><textarea class="reply-box" rows="2" placeholder="Write your reply here"></textarea><button class="post-reply">Reply</button></li></ul>').insertAfter($(this).closest('li'));
   $('.post-reply').on('click', postReplyClickEventHandler);
   event.stopPropagation();
-  event.preventDefault();
 };
 
 
@@ -40,7 +36,6 @@ var postReplyClickEventHandler = function (event) {
   $('<li>' + reply + '</li>').appendTo($(this).closest('ul'));
   $(this).closest('.comments').find('.reply-box').parent().remove();
   event.stopPropagation();
-  event.preventDefault();
 };
 
 var main = function () {
@@ -48,7 +43,6 @@ var main = function () {
   $('.btn').on('click', commentClickEventHandler);
   $('.add-comments').on('click', textClickEventHandler);
   $('.reply').on('click', replyClickEventHandler);
-  
 };
 
 $(document).ready(main);
