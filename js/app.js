@@ -16,7 +16,7 @@ var textClickEventHandler = function (event) {
 var commentClickEventHandler = function (event) {
     var post = $(this).closest('.post').find('.status-box').val();
     var commentList = $(this).closest('.post').find('.comments');
-    $('<li>' + post + '<a href="#" class="reply">Reply</a>' + '</li>').prependTo(commentList);
+    $('<li>' + post + '<button class="reply">Reply</button>' + '</li>').prependTo(commentList);
     commentList.show();
     $('.status-box').val('');
     event.stopPropagation();
@@ -26,7 +26,7 @@ var commentClickEventHandler = function (event) {
 
 //show reply input field
 var replyClickEventHandler = function (event) {
-  $('<ul><li><textarea class="reply-box" rows="2" placeholder="Write your reply here"></textarea><a href="#" class="post-reply">Reply</a></li></ul>').insertAfter($(this).closest('li'));
+  $('<ul><li><textarea class="reply-box" rows="2" placeholder="Write your reply here"></textarea><button class="post-reply">Reply</button></li></ul>').insertAfter($(this).closest('li'));
   $('.post-reply').on('click', postReplyClickEventHandler);
   event.stopPropagation();
   event.preventDefault();
